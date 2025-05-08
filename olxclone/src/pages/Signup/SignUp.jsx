@@ -3,6 +3,8 @@ import "./SignUp.css";
 import OlxLogo from "../../assets/OlxLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../firebase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -15,16 +17,30 @@ const SignUp = () => {
     e.preventDefault();
     try {
       await signup(name, email, password, phoneNumber);
-      alert("Signup successful!");
+      toast.success("Signup successful!", { containerId: "signup-toast" });
       navigate("/");  
     } catch (err) {
-      alert(err.message);
+        toast.error(err.message, { containerId: "signup-toast" });
     }
   };
 
   return (
     <div className="signupContainer">
       <div className="signupForm">
+      <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          containerId="signup-toast"
+        />
+        
         <div className="logoContainer">
           <OlxLogo />
         </div>

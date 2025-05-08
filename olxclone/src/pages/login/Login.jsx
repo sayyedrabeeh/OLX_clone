@@ -3,6 +3,8 @@ import "./Login.css";
 import OlxLogo from "../../assets/OlxLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../firebase";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,15 +15,30 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
+      toast.success("Login successful!", { containerId: "login-toast" });
       navigate('/home');  
     } catch (error) {
-      alert("Login failed: " + error.message);
+        toast.error("Login failed: " + error.message, { containerId: "login-toast" });
     }
   };
 
   return (
     <div className="loginContainer">
       <div className="loginForm">
+      <ToastContainer
+          position="top-right"  
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          containerId="login-toast"
+        />
+        
         <div className="logoContainer">
           <OlxLogo />
         </div>

@@ -1,48 +1,100 @@
 .viewParentDiv {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
-    align-items: flex-start;
-    padding: 20px 60px;
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .viewParentDiv {
+      flex-direction: row;
+      padding: 24px 16px;
+    }
   }
   
   .imageShowDiv {
-    padding: 16px;
-    width: 65%;
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .imageShowDiv {
+      width: 65%;
+      margin-bottom: 0;
+      margin-right: 16px;
+    }
   }
   
   .imageShowDiv img {
     width: 100%;
+    height: auto;
+    max-height: 500px;
     object-fit: contain;
   }
   
   .rightSection {
-    padding: 16px;
-    width: 35%;
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .rightSection {
+      width: 35%;
+    }
   }
   
   .productDetails,
   .contactDetails {
-    border: 1px solid #ccc;
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
   }
   
   .productDetails p:first-child {
+    font-size: 28px;
     font-weight: 700;
     color: #002f34;
-    font-size: 32px;
-    margin-bottom: 10px;
+    margin: 0 0 8px 0;
+  }
+  
+  .productDetails span {
+    font-size: 16px;
+    color: #002f34;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .productDetails p:nth-child(3) {
+    font-size: 14px;
+    color: rgba(0, 47, 52, 0.64);
+    margin: 8px 0;
   }
   
   .contactDetails p:first-child {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #002f34;
+    margin: 0 0 16px 0;
+  }
+  
+  .contactDetails p {
+    font-size: 14px;
+    color: #002f34;
+    margin: 8px 0;
   }
   
   .loading {
-    padding: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
     font-size: 18px;
+    color: #002f34;
   }
   

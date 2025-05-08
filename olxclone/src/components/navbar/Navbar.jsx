@@ -12,6 +12,19 @@ import { logout } from "../../firebase";
 const Navbar = () => {
   const { logState } = useContext(MyContext);
 
+
+
+  const handleAuthClick = () => {
+    if (user) {
+      logout();
+      localStorage.removeItem("user");
+      setUser(null);
+      navigate("/");
+    } else {
+      navigate("/");
+    }
+  };
+  
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -22,14 +35,14 @@ const Navbar = () => {
         </div>
         <div className="placeSearch">
           <Search />
-          <input type="text" />
+          <input type="text" placeholder="Search location..." />
           <Arrow />
         </div>
         <div className="productSearch">
           <div className="input">
             <input
               type="text"
-              placeholder="Find car,mobile phone and more..."
+              placeholder="Find cars, mobile phones and more..."
             />
           </div>
           <div className="searchAction">
@@ -37,7 +50,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="language">
-          <span> ENGLISH </span>
+          <span>ENGLISH</span>
           <Arrow />
         </div>
         <div className="loginPage">
@@ -52,7 +65,7 @@ const Navbar = () => {
         </div>
 
         <Link to={"/addproduct"} className="sellMenu">
-          <SellButton />
+          
           <div className="sellMenuContent">
             <SellButtonPlus />
             <span>SELL</span>

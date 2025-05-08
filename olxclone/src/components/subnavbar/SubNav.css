@@ -1,41 +1,66 @@
-/* SubNav Styling */
 .bannerParentDiv {
-    width: 100%;
-    background-color: #f5f5f5;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccd5d6;
   }
   
   .bannerChildDiv {
-    display: flex;
-    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
   }
   
   .menuBar {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
-    background-color: #ffffff;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
   
   .categoryMenu {
-    font-size: 16px;
     display: flex;
     align-items: center;
+    font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
+    color: #002f34;
+  }
+  
+  .categoryMenu span {
+    margin-right: 8px;
   }
   
   .otherQuickOptions {
     display: flex;
-    gap: 15px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .otherQuickOptions::-webkit-scrollbar {
+    display: none;
   }
   
   .otherQuickOptions span {
     font-size: 14px;
-    color: #5f6368;
+    color: rgba(0, 47, 52, 0.64);
+    margin-left: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .otherQuickOptions span:hover {
+    color: #002f34;
+  }
+  
+  .banner {
+    padding: 16px;
   }
   
   .banner img {
     width: 100%;
     height: auto;
-    margin-top: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-  
