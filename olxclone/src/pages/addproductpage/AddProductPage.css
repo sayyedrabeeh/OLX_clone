@@ -1,0 +1,88 @@
+/* Container for the Add Product Page */
+.addProductContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  /* Form wrapper */
+  .addProductForm {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  /* Logo container */
+  .logoContainer {
+    margin-bottom: 2rem;
+  }
+  
+  .olxLogo {
+    width: 150px;
+    height: auto;
+  }
+  
+  /* Form group styling */
+  .formGroup {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .formGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  /* Image preview container */
+  .image-preview {
+    margin-top: 1rem;
+  }
+  
+  .imagePreview {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Submit button */
+  .submitBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 1rem;
+  }
+  
+  .submitBtn:hover {
+    background-color: #45a049;
+  }
+  
+  /* For additional styling like "already a user" link */
+  .loginRedirect {
+    margin-top: 1.5rem;
+    font-size: 14px;
+    color: #333;
+  }
+  

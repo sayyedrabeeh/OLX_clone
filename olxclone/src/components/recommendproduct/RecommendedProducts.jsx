@@ -15,6 +15,7 @@ const RecommendedProducts = () => {
       ...doc.data(),
     }));
     setProducts(productList);
+    console.log('Fetched products:', productList);
   };
 
   useEffect(() => {

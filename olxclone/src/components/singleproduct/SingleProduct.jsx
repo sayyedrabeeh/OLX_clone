@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './SingleProduct.css';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore/lite';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 const SingleProductPage = () => {
@@ -15,6 +15,7 @@ const SingleProductPage = () => {
 
       if (docSnap.exists()) {
         setProduct(docSnap.data());
+        
       } else {
         console.warn("No such product!");
       }
@@ -32,7 +33,7 @@ const SingleProductPage = () => {
   return (
     <div className="viewParentDiv">
       <div className="imageShowDiv">
-        <img src={product.imageUrl} alt={product.productName} />
+      <img src={product.imageUrl} alt={product.productName} />
       </div>
       <div className="rightSection">
         <div className="productDetails">

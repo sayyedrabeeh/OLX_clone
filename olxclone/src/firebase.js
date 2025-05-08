@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// Your Firebase config
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBl6Eaa_54bM-fRHUEz5sb2z6kqlZI67Vo",
   authDomain: "olxclone-663e8.firebaseapp.com",
@@ -16,19 +16,28 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app); // ✅ simple getFirestore
 
-// Signup function
 export const signup = (name, email, password, phone) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-// Login function
 export const login = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
-const db = getFirestore(app); 
- 
+
 export const logout = () => {
-    return signOut(auth);
-  };
-export { db };
+  return signOut(auth);
+};
+
+export const addProduct = async (product) => {
+  try {
+    const docRef = await addDoc(collection(db, "products"), product);
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding product to Firestore:", error.message);
+    throw error;
+  }
+};
+
+export { db, auth };
