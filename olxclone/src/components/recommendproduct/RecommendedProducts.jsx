@@ -3,7 +3,7 @@ import "./RecommendedProducts.css";
 import Heart from "../../assets/Heart";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore";
 
 const RecommendedProducts = () => {
   const [products, setProducts] = useState([]);
