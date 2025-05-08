@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
  
 import App from './App.jsx'
+import { MyContextProvider } from "./context/MyContext";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+     <MyContextProvider>
+      <App />
+    </MyContextProvider>
   </StrictMode>,
 )

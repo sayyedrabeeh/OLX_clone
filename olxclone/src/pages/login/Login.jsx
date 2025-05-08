@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate('/login');  
+      navigate('/home');  
     } catch (error) {
       alert("Login failed: " + error.message);
     }
@@ -52,7 +52,7 @@ const Login = () => {
         </form>
         <div className="signupRedirect">
           <span>Don't have an account? </span>
-          <Link to={'/signup'}>
+          <Link to={'/SignUp'}>
             <button className="signupBtn">Sign Up</button>
           </Link>
         </div>

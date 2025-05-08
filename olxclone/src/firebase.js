@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
 
 // Your Firebase config
 const firebaseConfig = {
@@ -25,3 +26,9 @@ export const signup = (name, email, password, phone) => {
 export const login = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
+const db = getFirestore(app); 
+ 
+export const logout = () => {
+    return signOut(auth);
+  };
+export { db };

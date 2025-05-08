@@ -1,0 +1,41 @@
+/* SubNav Styling */
+.bannerParentDiv {
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+  
+  .bannerChildDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menuBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background-color: #ffffff;
+  }
+  
+  .categoryMenu {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .otherQuickOptions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .otherQuickOptions span {
+    font-size: 14px;
+    color: #5f6368;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  

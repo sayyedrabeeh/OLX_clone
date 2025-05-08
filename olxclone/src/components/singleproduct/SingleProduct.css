@@ -1,0 +1,48 @@
+.viewParentDiv {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 60px;
+  }
+  
+  .imageShowDiv {
+    padding: 16px;
+    width: 65%;
+  }
+  
+  .imageShowDiv img {
+    width: 100%;
+    object-fit: contain;
+  }
+  
+  .rightSection {
+    padding: 16px;
+    width: 35%;
+  }
+  
+  .productDetails,
+  .contactDetails {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .productDetails p:first-child {
+    font-weight: 700;
+    color: #002f34;
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .contactDetails p:first-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #002f34;
+  }
+  
+  .loading {
+    padding: 50px;
+    text-align: center;
+    font-size: 18px;
+  }
+  

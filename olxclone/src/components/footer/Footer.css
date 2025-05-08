@@ -1,0 +1,50 @@
+/* Footer Styling */
+.footerParentDiv {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .content div {
+    width: 30%;
+  }
+  
+  .heading p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list ul li {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  .list ul li:hover {
+    text-decoration: underline;
+  }
+  
+  .footer {
+    font-size: 12px;
+    color: #5f6368;
+    text-align: center;
+    padding-top: 10px;
+  }
+  
+  .footer p {
+    margin: 5px 0;
+  }
+  
