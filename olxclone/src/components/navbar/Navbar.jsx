@@ -5,26 +5,21 @@ import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { MyContext }  from "../../context/MyContext";
-import { logout } from "../../firebase";
-
+// import { logout } from "../../firebase";
+import { logout as firebaseLogout } from "../../firebase";
 const Navbar = () => {
-  const { logState } = useContext(MyContext);
+  const { logState, setLogState } = useContext(MyContext);
+  const navigate = useNavigate();
 
 
-
-  const handleAuthClick = () => {
-    if (user) {
-      logout();
-      localStorage.removeItem("user");
-      setUser(null);
-      navigate("/");
-    } else {
-      navigate("/");
-    }
+    const handleLogout = () => {
+    firebaseLogout();  
+    localStorage.removeItem("token");  
+    setLogState("Login");
+    navigate("/");
   };
-  
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -55,11 +50,9 @@ const Navbar = () => {
         </div>
         <div className="loginPage">
           <span
-            onClick={() => {
-              logout();
-            }}
+            onClick={handleLogout}
           >
-            {logState ? logState : "Login"}
+             Logout 
           </span>
           <hr />
         </div>
