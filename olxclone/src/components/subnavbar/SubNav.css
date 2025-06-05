@@ -1,66 +1,186 @@
 .bannerParentDiv {
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ccd5d6;
-  }
-  
-  .bannerChildDiv {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccd5d6;
+}
+
+.bannerChildDiv {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.menuBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.categoryMenu {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: #002f34;
+  flex-shrink: 0;
+}
+
+.categoryMenu span {
+  margin-right: 8px;
+}
+
+.otherQuickOptions {
+  display: flex;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex: 1;
+  gap: 16px;
+}
+
+.otherQuickOptions::-webkit-scrollbar {
+  display: none;
+}
+
+.otherQuickOptions span {
+  font-size: 14px;
+  color: rgba(0, 47, 52, 0.64);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.otherQuickOptions span:hover {
+  color: #002f34;
+}
+
+.banner {
+  padding: 16px;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
   .menuBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-    background-color: white;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px 12px;
+    gap: 15px;
   }
   
   .categoryMenu {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    color: #002f34;
-  }
-  
-  .categoryMenu span {
-    margin-right: 8px;
-  }
-  
-  .otherQuickOptions {
-    display: flex;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .otherQuickOptions::-webkit-scrollbar {
-    display: none;
+    font-size: 13px;
   }
   
   .otherQuickOptions span {
-    font-size: 14px;
-    color: rgba(0, 47, 52, 0.64);
-    margin-left: 16px;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  
-  .otherQuickOptions span:hover {
-    color: #002f34;
+    font-size: 13px;
   }
   
   .banner {
-    padding: 16px;
+    padding: 12px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  .menuBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
   }
   
-  .banner img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  .categoryMenu {
+    align-self: flex-start;
+    margin-bottom: 5px;
   }
+  
+  .otherQuickOptions {
+    justify-content: flex-start;
+    padding: 5px 0;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+  }
+  
+  .banner {
+    padding: 10px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .menuBar {
+    padding: 8px;
+  }
+  
+  .categoryMenu {
+    font-size: 12px;
+  }
+  
+  .categoryMenu span {
+    margin-right: 6px;
+  }
+  
+  .otherQuickOptions {
+    gap: 12px;
+    padding: 8px 0;
+  }
+  
+  .otherQuickOptions span {
+    font-size: 12px;
+  }
+  
+  .banner {
+    padding: 8px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .menuBar {
+    padding: 6px;
+  }
+  
+  .categoryMenu {
+    font-size: 11px;
+  }
+  
+  .otherQuickOptions {
+    gap: 10px;
+    padding: 6px 0;
+  }
+  
+  .otherQuickOptions span {
+    font-size: 11px;
+  }
+  
+  .banner {
+    padding: 6px;
+  }
+}
+
+/* Horizontal scroll indicator for mobile */
+@media (max-width: 768px) {
+  .otherQuickOptions::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8));
+    pointer-events: none;
+  }
+  
+  .menuBar {
+    position: relative;
+  }
+}
