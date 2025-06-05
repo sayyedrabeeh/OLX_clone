@@ -15,11 +15,29 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      toast.success("Login successful!", { containerId: "login-toast" });
+      toast.success("Login successful!");
       navigate('/home');  
-    } catch (error) {
-        toast.error("Login failed: " + error.message, { containerId: "login-toast" });
-    }
+    } catch (err) {
+        console.error(err);
+
+        let message = 'An error occurred. Please try again.';
+
+        if (err.code === 'auth/user-not-found') {
+          message = 'No user found with this email.';
+        } else if (err.code === 'auth/wrong-password') {
+          message = 'Incorrect password.';
+        } else if (err.code === 'auth/invalid-email') {
+          message = 'Email address is not valid.';
+        } else if (err.code === 'auth/email-already-in-use') {
+          message = 'This email is already registered.';
+        } else if (err.code === 'auth/invalid-credential') {
+          message = 'Invalid credentials. Please check your login details.';
+        } else if (err.message) {
+          message = err.message;
+        }
+
+        toast.error(message);
+           }
   };
 
   return (
@@ -36,7 +54,7 @@ const Login = () => {
           draggable
           pauseOnHover
           theme="light"
-          containerId="login-toast"
+          
         />
         
         <div className="logoContainer">
