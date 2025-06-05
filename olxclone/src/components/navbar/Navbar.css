@@ -1,125 +1,287 @@
 .headerParentDiv {
-    background-color: #f9f9f9;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.headerChildDiv {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brandName {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.placeSearch {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #002f34;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-left: 20px;
+  min-width: 180px;
+}
+
+.placeSearch input {
+  border: none;
+  outline: none;
+  width: 150px;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.productSearch {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  position: relative;
+  min-width: 200px;
+}
+
+.productSearch .input {
+  width: 100%;
+}
+
+.productSearch .input input {
+  width: 100%;
+  border: 2px solid #002f34;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.searchAction {
+  background-color: #002f34;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.language {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.loginPage {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.loginPage span {
+  margin-right: 5px;
+}
+
+.loginPage hr {
+  height: 20px;
+  margin: 0 10px;
+  border: none;
+  border-left: 1px solid #ccd5d6;
+}
+
+.sellMenu {
+  position: relative;
+  margin-left: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.sellMenuContent {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 2px solid #002f34;
+  border-radius: 30px;
+  background-color: white;
+  margin-left: 8px;
+}
+
+.sellMenuContent span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #002f34;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
   .headerChildDiv {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-  }
-  
-  .brandName {
-    display: flex;
-    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
   }
   
   .placeSearch {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 2px solid #002f34;
-    border-radius: 4px;
-    padding: 5px 8px;
-    margin-left: 20px;
+    margin-left: 10px;
+    min-width: 150px;
   }
   
   .placeSearch input {
-    border: none;
-    outline: none;
-    width: 150px;
-    margin: 0 8px;
-    font-size: 14px;
+    width: 120px;
   }
   
   .productSearch {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-    position: relative;
-  }
-  
-  .productSearch .input {
-    width: 100%;
-  }
-  
-  .productSearch .input input {
-    width: 100%;
-    border: 2px solid #002f34;
-    border-radius: 4px;
-    outline: none;
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-  
-  .searchAction {
-    background-color: #002f34;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
+    margin: 0 10px;
   }
   
   .language {
-    padding: 0 10px;
-    font-size: 14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    padding: 0 8px;
+    font-size: 13px;
   }
   
   .loginPage {
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .loginPage span {
-    margin-right: 5px;
-  }
-  
-  .loginPage hr {
-    height: 20px;
-    margin: 0 10px;
-    border: none;
-    border-left: 1px solid #ccd5d6;
+    padding: 0 10px;
+    font-size: 15px;
   }
   
   .sellMenu {
-    position: relative;
-    margin-left: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    margin-left: 10px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  .headerChildDiv {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .brandName {
+    align-self: center;
+    margin-bottom: 5px;
+  }
+  
+  .placeSearch {
+    margin: 0;
+    order: 2;
+  }
+  
+  .productSearch {
+    margin: 0;
+    order: 1;
+    width: 100%;
+  }
+  
+  .language,
+  .loginPage,
+  .sellMenu {
+    order: 3;
+    margin: 0;
+    align-self: center;
+  }
+  
+  .language {
+    margin-right: 15px;
+  }
+  
+  .loginPage {
+    margin-right: 15px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .headerChildDiv {
+    padding: 8px;
+  }
+  
+  .placeSearch {
+    min-width: unset;
+    width: 100%;
+  }
+  
+  .placeSearch input {
+    width: 100%;
+    min-width: 100px;
+  }
+  
+  .productSearch .input input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  
+  .searchAction {
+    padding: 8px;
+  }
+  
+  .language,
+  .loginPage {
+    font-size: 14px;
+    padding: 0 8px;
   }
   
   .sellMenuContent {
-    display: flex;
-    align-items: center;
-    padding: 8px 14px;
-    border: 2px solid #002f34;
-    border-radius: 30px;
-    background-color: white;
-    margin-left: 8px;
+    padding: 6px 10px;
   }
   
   .sellMenuContent span {
-    font-size: 14px;
-    font-weight: 700;
-    color: #002f34;
+    font-size: 13px;
   }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .headerChildDiv {
+    padding: 6px;
+    gap: 8px;
+  }
+  
+  .brandName svg {
+    width: 80px;
+    height: auto;
+  }
+  
+  .productSearch .input input {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+  
+  .searchAction {
+    padding: 6px;
+  }
+  
+  .language,
+  .loginPage {
+    font-size: 13px;
+    padding: 0 6px;
+  }
+  
+  .sellMenuContent {
+    padding: 4px 8px;
+  }
+  
+  .sellMenuContent span {
+    font-size: 12px;
+  }
+}
