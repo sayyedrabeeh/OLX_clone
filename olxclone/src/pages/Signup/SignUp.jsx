@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./SignUp.css";
 import OlxLogo from "../../assets/OlxLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -12,7 +13,16 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const navigate = useNavigate();
+ useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/home", { replace: true });
+      }
+    });
 
+    return unsubscribe;
+  }, []);
   const user_auth = async (e) => {
     e.preventDefault();
     try {
