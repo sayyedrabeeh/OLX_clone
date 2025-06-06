@@ -5,13 +5,18 @@ import { uploadImage } from "../../cloudinary/ImageService";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import OlxLogo from "../../assets/OlxLogo";  
+import { getAuth } from "firebase/auth";
 
 const AddProductPage = () => {
   const navigate = useNavigate();
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+  const [sellerName, setSellerName] = useState("");
+  const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
@@ -26,10 +31,16 @@ const AddProductPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!currentUser) {
+      alert("You must be logged in to add a product.");
+      return;
+    }
+
     try {
       let imageUrl = "";
       if (image) {
-        imageUrl = await uploadImage(image);  
+        imageUrl = await uploadImage(image);
       }
 
       const newProduct = {
@@ -38,11 +49,13 @@ const AddProductPage = () => {
         price: parseFloat(price),
         imageUrl,
         createdAt: new Date().toISOString(),
+        sellerName,
+        phone,
+        sellerId: currentUser.uid,  // Save current user's ID here
       };
 
-      await addProduct(newProduct); 
-
-      navigate("/home");   
+      await addProduct(newProduct);
+      navigate("/home");
     } catch (error) {
       console.error("Error adding product:", error.message);
     }
@@ -57,6 +70,7 @@ const AddProductPage = () => {
             <OlxLogo />
           </div>
           <form onSubmit={handleSubmit}>
+
             <div className="formGroup">
               <label htmlFor="productName">Product Name</label>
               <input
@@ -89,6 +103,30 @@ const AddProductPage = () => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder="Enter price"
+                required
+              />
+            </div>
+
+            <div className="formGroup">
+              <label htmlFor="sellerName">Seller Name</label>
+              <input
+                type="text"
+                id="sellerName"
+                value={sellerName}
+                onChange={(e) => setSellerName(e.target.value)}
+                placeholder="Enter seller name"
+                required
+              />
+            </div>
+
+            <div className="formGroup">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Enter phone number"
                 required
               />
             </div>
