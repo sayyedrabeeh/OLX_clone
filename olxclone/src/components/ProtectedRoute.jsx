@@ -1,12 +1,14 @@
- 
-import { Navigate } from 'react-router-dom';
-import { auth } from '../firebase';
+// src/components/ProtectedRoute.jsx
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 const ProtectedRoute = ({ children }) => {
-  const user = auth.currentUser;
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
 
-  if (!user) {
-    return <Navigate to="/" replace />;
+  if (!currentUser) {
+    return <Navigate to="/" replace />; // Redirect to login if not authenticated
   }
 
   return children;
