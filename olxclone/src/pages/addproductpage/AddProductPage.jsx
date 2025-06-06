@@ -19,7 +19,7 @@ const AddProductPage = () => {
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -36,6 +36,7 @@ const AddProductPage = () => {
       alert("You must be logged in to add a product.");
       return;
     }
+   setLoading(true)
 
     try {
       let imageUrl = "";
@@ -51,12 +52,14 @@ const AddProductPage = () => {
         createdAt: new Date().toISOString(),
         sellerName,
         phone,
-        sellerId: currentUser.uid,  // Save current user's ID here
+        sellerId: currentUser.uid,   
       };
 
       await addProduct(newProduct);
+      setLoading(false);
       navigate("/home");
     } catch (error) {
+      setLoading(false);
       console.error("Error adding product:", error.message);
     }
   };
@@ -69,6 +72,9 @@ const AddProductPage = () => {
           <div className="logoContainer">
             <OlxLogo />
           </div>
+          {loading ? (
+            <div className="loading">Adding product... Please wait.</div>
+          ) :(
           <form onSubmit={handleSubmit}>
 
             <div className="formGroup">
@@ -151,7 +157,7 @@ const AddProductPage = () => {
             <button type="submit" className="submitBtn">
               Add Product
             </button>
-          </form>
+          </form>)}
         </div>
       </div>
     </>
