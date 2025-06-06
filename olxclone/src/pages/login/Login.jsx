@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import "./Login.css";
 import OlxLogo from "../../assets/OlxLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../firebase";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/home", { replace: true });
+      }
+    });
 
+    return unsubscribe;
+  }, []);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
       toast.success("Login successful!");
-      navigate('/home');  
+      navigate('/home',{ replace: true });  
     } catch (err) {
         console.error(err);
 
