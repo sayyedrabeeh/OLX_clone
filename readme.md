@@ -38,13 +38,12 @@ A modern OLX-inspired marketplace web app built with **React (Vite)** and **Fire
 ---
 
 ##  Screenshots
+ 
 
-> Add screenshots in `screenshots/` folder for better impact.
 
-```md
 ![Home Page](home.png)
 ![Login Page](lo.png)
- ````
+
 
 ---
 
@@ -96,11 +95,9 @@ firebase deploy
 🔗 GitHub: [https://github.com/sayyedrabeeh](https://github.com/sayyedrabeeh)
 🔗 LinkedIn: [https://www.linkedin.com/in/sayyed-rabeeh/](https://www.linkedin.com/in/sayyed-rabeeh/)
 
----
-
+ 
 ⭐ If you like this project, consider giving it a star!
 
-```
-
+ 
  
  
