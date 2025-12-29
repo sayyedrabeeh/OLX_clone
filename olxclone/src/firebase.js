@@ -4,7 +4,7 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "olxclone-663e8.firebaseapp.com",
   projectId: "olxclone-663e8",
   storageBucket: "olxclone-663e8.appspot.com",
